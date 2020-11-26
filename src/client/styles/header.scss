@@ -1,0 +1,22 @@
+header {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 40px;
+    background-color: gray;
+    color: gray;
+    display: flex;
+    width: 100%;
+    font-size: 24px;
+    text-align: center;
+    justify-content: center;
+    padding: 2 rem 0;
+}
+
+@media only screen and (max-width: 480px){
+}
+
+@media only screen and (max-width: 568px){
+}
+
+@media only screen and (min-width: 1024px){
+}

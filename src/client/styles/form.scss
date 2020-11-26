@@ -1,0 +1,25 @@
+form {
+    border: 1px solid #545454;
+    border-radius: 3px;
+    padding: 40px;
+    width: 750px;
+    align-items: center;
+    margin: 0 auto;
+    border-radius: 2px;
+}
+
+input {
+    padding: 5px 20px;
+    width: 100%;
+    line-height: 16px;
+    margin: 10px 0;
+}
+
+@media only screen and (max-width: 480px){
+}
+
+@media only screen and (max-width: 568px){
+}
+
+@media only screen and (min-width: 1024px){
+}
