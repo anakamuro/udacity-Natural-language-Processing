@@ -1,4 +1,4 @@
-mport { checkerForName } from '../client/js/nameChecker'
+import { checkerForName } from '../client/js/nameChecker'
 
 
 describe('Test, the function "checkerForName()" should exist' , () => {
