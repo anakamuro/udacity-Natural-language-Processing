@@ -1,25 +1,7 @@
-var AYLIENTextAPI = require('aylien_textapi');
-var textapi = new AYLIENTextAPI({
-  application_id: "c678286a",
-  application_key: "66fba852bf4ea333e60b6f9cf99e83f8"
-});
-
-textapi.sentiment({
-    'text': 'John is a very good football player!'
-  }, function(error, response) {
-    if (error === null) {
-      console.log(response);
-    }
-  });
-  console.log('Your API key is ${process.env.API_KEY}')
-
-  const dotenv = require('dotenv');
-  dotenv.config();
-
-
 var path = require('path')
 const express = require('express')
 const mockAPIResponse = require('./mockAPI.js')
+const server = require('./server.js')
 
 const app = express()
 
@@ -36,6 +18,8 @@ app.get('/', function (req, res) {
 app.listen(8080, function () {
     console.log('Example app listening on port 8080!')
 })
+
+
 
 app.post('/test', function (req, res) {
     res.send(mockAPIResponse)
