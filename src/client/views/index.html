@@ -35,17 +35,20 @@
                 to build, train, evaluate, and deploy natural language processing models that are optimized
                 through machine learning and artificial intelligence</p>
             <section>
-                <form class="" id="form">
-                    
-                    <input id="name" type="text" name="input" value="" placeholder="Name">
-                    <input type="submit" name="" value="submit">
-                
-                </form>
-            <section>
+             <form class="" onsubmit="return Client.handleSubmit(event)">
+                <input id="url" type="text" name="input" value="" placeholder="Valid Url" required>
+                <div id="error">Please enter a valid URL to an article</div>
+                <input type="submit" name="" value="submit" onclick="return Client.handleSubmit(event)" onsubmit="return Client.handleSubmit(event)">
+            </form>   
 
             <section>
-                <strong>Form Results:</strong>
-                <div id="results"></div>
+                 <strong>Form Results:</strong>
+                    <div id="results">
+                        <div id="polarity"></div>
+                        <div id="pol-confidence"></div>
+                        <div id="subjectivity"></div>
+                        <div id="sub-confidence"></div>
+                    </div>
             </section>
         </main>
 
