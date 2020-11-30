@@ -25,4 +25,4 @@ app.post('/test', function (req, res) {
     res.send(mockAPIResponse)
 })
 
-app.post('/article', requestPost.inValidateRequest, requestPost.registerPostHandler);
+app.post('/article', requestPost.inputValidateRequest, requestPost.registerPostHandler);
