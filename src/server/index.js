@@ -1,7 +1,7 @@
 var path = require('path')
 const express = require('express')
 const mockAPIResponse = require('./mockAPI.js')
-const server = require('./server.js')
+const requestPost = require('./handleRequest.js')
 
 const app = express()
 
@@ -24,3 +24,5 @@ app.listen(8080, function () {
 app.post('/test', function (req, res) {
     res.send(mockAPIResponse)
 })
+
+app.post('/article', requestPost.inValidateRequest, requestPost.registerPostHandler);
