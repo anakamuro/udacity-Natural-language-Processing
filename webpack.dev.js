@@ -21,6 +21,12 @@ module.exports = {
             }
         ]
     },
+    output: {
+        path: path.join(__dirname, "dist"),
+        filename: "bundle-[hash].min.js",
+        libraryTarget: "var",
+        library: "Client"
+    },
     plugins: [
         new HtmlWebPackPlugin({
             template: "./src/client/views/index.html",
