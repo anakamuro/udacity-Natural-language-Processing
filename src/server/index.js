@@ -13,10 +13,23 @@ app.get('/', function (req, res) {
 // designates what port the app will listen to for incoming requests
 app.listen(8080, function () {
     console.log('Example app listening on port 8080!')
-})
+});
 
-app.get('/test', function (req, res) {
-app.post('/test', function (req, res) {
-    res.send(mockAPIResponse)
-}) 
+app.post('/article', async (req, res, next) =>{
+  try {
+    var data = textapi.sentiment({
+      //'text': 'John is a very good football player!'
+      'url': req.body.text
+    }, function(error, response) {
+      if (error === null) {
+        console.log(response);
+        res.send(response);
+      }
+    });
+    //res.send(mockAPIResponse)
+  } catch(error) {
+    // Passes errors into the handler
+    return next(error)
+  }
+  //res.send(returnVal);
 })
