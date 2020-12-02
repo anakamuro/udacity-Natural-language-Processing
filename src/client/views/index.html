@@ -34,22 +34,40 @@
                 and entity extraction of text-based content all within the users browser. TAP allows users
                 to build, train, evaluate, and deploy natural language processing models that are optimized
                 through machine learning and artificial intelligence</p>
-            <section>
-             <form class="" onsubmit="return Client.handleSubmit(event)">
-                <input id="url" type="text" name="input" value="" placeholder="Valid Url" required>
-                <div id="error">Please enter a valid URL to an article</div>
-                <input type="submit" name="" value="submit" onclick="return Client.handleSubmit(event)" onsubmit="return Client.handleSubmit(event)">
-            </form>   
+                
+            <section class="errors">
+                    <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+                    <div id="error"></div>
+            </section> 
+
 
             <section>
-                 <strong>Form Results:</strong>
-                    <div id="results">
-                        <div id="polarity"></div>
-                        <div id="pol-confidence"></div>
-                        <div id="subjectivity"></div>
-                        <div id="sub-confidence"></div>
-                    </div>
-            </section>
+                <form class="" onsubmit="return client.handleSubmit(event)">
+                    <input id="name" type="url" name="test-url" value=""  placeholder="https://www.news-source/a-news-article...">
+                    <input type="submit" name="" value="submit" onclick="return Client.handleSubmit(event)" onsubmit="return Client.handleSubmit(event)">
+                </form>
+            <section>
+
+            <section class="url-results">
+                    <ul>
+                        <li>
+                            <h3>Text Polarity:</h3>
+                            <p id="polarity"></p>
+                            <h4>Confidence: </h4>
+                            <p id="polarity_confidence"></p>
+                        </li>
+    
+                        <li>
+                            <h3>Text Subjectivity:</h3>
+                            <p id="subjectivity"></p>
+                            <h4>Confidence: </h4>
+                            <p id="subjectivity_confidence"></p>
+                        </li>
+    
+                        <h3>Text Excerpt:</h3>
+                        <p id="excerpt"></p>
+                    </ul>
+                </section>
         </main>
 
         <footer>
