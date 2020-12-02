@@ -1,60 +1,45 @@
-const error = document.getElementById('error');
-const polarity = document.getElementById('polarity');
-const polConfidence = document.getElementById('pol-confidence');
-const subjectivity = document.getElementById('subjectivity');
-const subConfidence = document.getElementById('sub-confidence');
-
 function handleSubmit(event) {
     event.preventDefault()
 
-    let formUrl = document.getElementById('url').value;
+    //Get input from form input field
+    var input_url = document.querySelectorAll('input[name=test-url]')
 
-    console.log("::: Form Submitted :::")
-
-    if (Client.validateUrl(formUrl)) {
+    //Verify that input is a valid url
+    if(Client.validURL(JSON.parse(JSON.stringify(input_url[0].value))))
+    {
+        console.log("::: FORM INPUT VALID :::")
         
-        error.style.visibility = 'hidden';
+        console.log("BUILDING REQUEST");
+        fetch('/article', {
+            method: 'POST',
+            mode: 'cors',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({text: input_url[0].value})
+        })
+        .then(res => res.json())
+        .then(function(res) {
+            // print for debugging
+            console.log(res); 
 
-        polarity.innerHTML = "";
-        polConfidence.innerHTML = "";
-        subjectivity.innerHTML = "";
-        subConfidence.innerHTML = "";
+            // Populate html with result
+            document.querySelector('section.url-results #polarity').innerHTML = res.polarity
+            document.querySelector('section.url-results #subjectivity').innerHTML = res.subjectivity
+            document.querySelector('section.url-results #polarity_confidence').innerHTML = res.polarity_confidence
+            document.querySelector('section.url-results #subjectivity_confidence').innerHTML = res.subjectivity_confidence
+            document.querySelector('section.url-results #excerpt').innerHTML = res.text
+        })
 
-        postData(formUrl)
-            .then(function(data) {
-                updateUI(data);
-            })
-    }
+    }else{
+        // Display error message if URL is not valide
+        var error_section = document.querySelector('section.errors');
+        var error = document.querySelector('section.errors #error');
+        error.innerHTML = "The URL:[" +JSON.stringify(input_url[0].value)+"] is not valide. Please enter a valid url"
+        error_section.style.display = "block";
+        
+    } 
 }
 
-const postData = async(url = '') => {
-
-    const response = await fetch('http://localhost:8080/test', {
-        method: 'POST',
-        credentials: 'same-origin',
-        mode: 'cors',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ "url": url }),       
-    });
-
-    try {
-        const newData = await response.json();
-        console.log(newData)
-        return newData
-    } catch (error) {
-        console.log("error", error);
-    }
-}
-
-
-function updateUI(data) {
-    console.log(data)
-    polarity.innerHTML = `Polarity: ${data.polarity}`;
-    polConfidence.innerHTML = `Polarity Confidence: ${data.polarity_confidence}`;
-    subjectivity.innerHTML = `Subjectivity: ${data.subjectivity}`;
-    subConfidence.innerHTML = `Subjectivity Confidence: ${data.subjectivity_confidence}`;
-}
-
-export { handleSubmit }
+  
+  export { handleSubmit };
