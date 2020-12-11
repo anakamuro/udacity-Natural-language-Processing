@@ -4,6 +4,7 @@
         <meta charset="utf-8">
         <title>Test</title>
         <link href="/styles.css" type="text/html" >
+        <link rel="shortcut icon" href="">
         <base href="/">
         
     </head>
@@ -33,19 +34,24 @@
                 and entity extraction of text-based content all within the users browser. TAP allows users
                 to build, train, evaluate, and deploy natural language processing models that are optimized
                 through machine learning and artificial intelligence</p>
-            <section>
-                <form class="" id="form">
-                    
-                    <input id="name" type="text" name="input" value="" placeholder="Name">
-                    <input type="submit" name="" value="submit">
                 
-                </form>
-            <section>
-
-            <section>
-                <strong>Form Results:</strong>
-                <div id="results"></div>
-            </section>
+                <section>
+                    <form class="" onsubmit="return Client.handleSubmit(event)">
+                        <input id="url" type="text" name="input" value="" placeholder="Valid Url" required>
+                        <div id="error">Please enter a valid URL to an article</div>
+                        <input type="submit" name="" value="submit" onclick="return Client.handleSubmit(event)" onsubmit="Client.handleSubmit(event)">
+                    </form>
+                    <section>
+        
+                        <section>
+                            <strong>Form Results:</strong>
+                            <div id="results">
+                                <div id="polarity"></div>
+                                <div id="pol-confidence"></div>
+                                <div id="subjectivity"></div>
+                                <div id="sub-confidence"></div>
+                            </div>
+                        </section>
         </main>
 
         <footer>
