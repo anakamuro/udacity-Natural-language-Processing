@@ -1,4 +1,4 @@
-import { checkerUrl } from "../js/checkerUrl";
+import { checkerUrl } from "../client/js/checkerUrl";
 
 describe("Test: 'checkerUrl()'", () => {
     test('Should be defined', () => {
