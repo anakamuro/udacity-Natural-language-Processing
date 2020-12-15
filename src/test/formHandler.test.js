@@ -9,5 +9,5 @@ describe('Test, the function "handleSubmit()" should exist' , () => {
 describe('Test, the function "handleSubmit()" should be a function' , () => {
     test('It should be a function', async () => {
         expect(typeof handleSubmit).toBe("function");
-    });
-});
+    })
+})  
