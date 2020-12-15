@@ -36,7 +36,7 @@ function handleSubmit(event) {
 // Async POST
 const postData = async(url = '') => {
 
-    const response = await fetch('http://localhost:8080/article', {
+    const response = await fetch('http://localhost:8081/article', {
         method: 'POST',
         credentials: 'same-origin',
         mode: 'cors',
