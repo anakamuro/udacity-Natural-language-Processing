@@ -7,7 +7,7 @@ import "./styles/header.scss";
 import "./styles/resets.scss";
 
 
-
+export { checkerUrl}
 export { handleSubmit} 
 console.log(checkerUrl);
 
