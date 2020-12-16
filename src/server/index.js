@@ -1,6 +1,6 @@
 var path = require('path')
 const express = require('express')
-const server = require('./server'}
+const server = require('./server')
 const mockAPIResponse = require('./mockAPI.js')
 const app = express()
 const bodyParser = require('body-parser');
