@@ -6,7 +6,17 @@ const app = express()
 const bodyParser = require('body-parser');
 app.use(bodyParser.json());
 
+const cors = require('cors')
+app.use(cors())
 
+var AYLIENTextAPI = require('aylien_textapi');
+var textapi = new AYLIENTextAPI({
+application_id: "c678286a",
+application_key: "66fba852bf4ea333e60b6f9cf99e83f8"
+});
+
+const dotenv = require('dotenv');
+dotenv.config();
 
 
 app.use(express.static('dist'))
