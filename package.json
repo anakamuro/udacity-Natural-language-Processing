@@ -35,8 +35,10 @@
     "dist": "^0.1.2",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
+    "favicon": "0.0.2",
     "html-webpack-plugin": "^3.2.0",
     "package-lock.json": "^1.0.0",
+    "serve-favicon": "^2.5.0",
     "workbox-webpack-plugin": "^5.1.2"
   }
 }
